@@ -1,2 +1,30 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user, url: signup_path) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+		  <%= f.radio_button :type, "Student" %>
+			<%= f.label :type_student, "I am a student" %>
+
+			<%= f.radio_button :type, "Teacher" %>
+			<%= f.label :type_teacher, "I am a teacher" %>
+			</br>	
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :no, "No." %>
+      <%= f.text_field :no %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Create my account", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
