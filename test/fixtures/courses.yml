@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course_number: 1
+  course_name: MyText
+  teacher: MyText
+  start_time: 2017-04-06
+  finish_time: 2017-04-06
+
+two:
+  course_number: 1
+  course_name: MyText
+  teacher: MyText
+  start_time: 2017-04-06
+  finish_time: 2017-04-06
