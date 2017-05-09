@@ -3,7 +3,7 @@
     <%= link_to "AutoTutor", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",   '#' %></li>
+        <li><%= link_to "Home",   users_path %></li>
         <li><%= link_to "Help",   '#' %></li>
         <% if logged_in? %>
           <li><%= link_to "Users", '#' %></li>

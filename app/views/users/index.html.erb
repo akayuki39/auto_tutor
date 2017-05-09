@@ -1,0 +1,33 @@
+<div>
+<table class="table">
+	<thead class="thead-default">
+		<tr class="task">
+			<th class="course_name">课程</th>
+			<th class="task_name">作业</th>
+			<th class="finish_time">截止时间</th>
+			<th class="status">状态</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @courses.each do |course| %>
+			<% task = course.tasks %>
+				<% task.each do |task| %>
+					<tr class="task">
+						<td class="course_name">
+							<%= course.course_name %>
+						</td>
+						<td class="task_name">
+							<%= link_to task.task_name, '#' %>
+						</td>
+						<td class="finish_time">
+							<%= task.finish_time %>
+						</td>
+						<td class="status">
+							<%= '之后添加' %>
+						</td>
+					</tr>
+				<% end %>
+		<% end %>	
+	</tbody>
+</table>
+</div>

@@ -1,4 +1,4 @@
 class Student < User
-	has_many   :enrollments
-	has_many   :courses, :through => :enrollments
+	has_many :enrollments
+	has_many :courses, :through => :enrollments, :source => :course
 end
