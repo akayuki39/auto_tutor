@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3" >
+    <div id="question">
+      <%= form_for(@task, url: course_tasks_path) do |f| %>
+        <%= render 'shared/task_error_messages' %>
+
+        <%= f.label :task_name %>
+        <%= f.text_field :task_name %>
+
+        <%= f.label :start_time %>
+        <%= f.date_select :start_time %>
+
+        <%= f.label :finish_time %>
+        <%= f.date_select :finish_time %>
+
+        <%= f.hidden_field :course_id, :value => params[:course_id] %>
+    </div>
+        <%= f.fields_for :choices do |v| %>
+          <%= render partial: "choice", locals: {f: v} %>
+        <% end %>
+
+      <%= f.submit "Create Task", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div class="col-md-6 col-md-offset-9">
+    <ul>
+      <li class="btn btn-primary" id="newchoice">New</li>
+    </ul>
+  </div>
+</div>
+

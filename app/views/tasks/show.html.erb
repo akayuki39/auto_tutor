@@ -1,0 +1,19 @@
+<% provide(:title, @task.task_name) %>
+
+<p>
+	<%= @task.task_name %>
+</p>
+
+<ol>
+	<% for choice in @task.choices %>
+		<li>
+			<%= choice.question %>
+			<ol type=A>
+				<li><%= choice.a %></li>
+				<li><%= choice.b %></li>
+				<li><%= choice.c %></li>	
+				<li><%= choice.d %></li>
+			</ol>
+		</li>
+	<% end %>
+</ol>

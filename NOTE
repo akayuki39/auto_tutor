@@ -1,0 +1,33 @@
+NOTE
+
+Tables
+
+Course
+	course_number
+	course_name
+	teacher_id
+	start_time
+	finish_time
+
+Task
+	task_name
+	start_time
+	finish_time
+	course_id
+
+Choice
+	t.integer  "course_id"
+  t.integer  "teacher_id"
+  t.text     "question"
+  t.text     "a"
+  t.text     "b"
+  t.text     "c"
+  t.text     "d"
+  t.text     "knowledge"
+	
+
+Data
+	student id: 11, name: akayuki
+	teacher id: 6,  name: 2
+	course  id: 1,  course_number: 1000
+	task    

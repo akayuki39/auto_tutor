@@ -10,14 +10,14 @@
 	</thead>
 	<tbody>
 		<% @courses.each do |course| %>
-			<% task = course.tasks %>
-				<% task.each do |task| %>
+			<% @tasks = course.tasks %>
+				<% @tasks.each do |task| %>
 					<tr class="task">
 						<td class="course_name">
-							<%= course.course_name %>
+							<%= link_to course.course_name, course_path(course) %>
 						</td>
 						<td class="task_name">
-							<%= link_to task.task_name, '#' %>
+							<%= link_to task.task_name, course_task_path(course, task) %>
 						</td>
 						<td class="finish_time">
 							<%= task.finish_time %>

@@ -1,0 +1,22 @@
+<p>
+  <%= f.label :question, "Question" %>
+  <%= f.text_area :question, :rows => 3 %>
+
+  <%= f.label :a, "A." %>
+  <%= f.text_field :a %>
+
+	<%= f.label :b, "B." %>
+  <%= f.text_field :b %>
+
+  <%= f.label :c, "C." %>
+  <%= f.text_field :c %>
+
+  <%= f.label :d, "D." %>
+  <%= f.text_field :d %>
+	
+	<%= f.check_box :_destroy %>
+  <%= f.label :_destroy, "Remove Question" %> 
+
+  <%= f.hidden_field :course_id, :value => params[:course_id] %>
+  <%= f.hidden_field :teacher_id, :value => session[:user_id] %>
+</p>

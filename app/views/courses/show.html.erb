@@ -1,0 +1,10 @@
+<div>
+	<%= @course.course_name %>
+	<%= link_to 'New Task', new_course_task_path(@course) %>
+	<div>
+		<% @tasks.each do |task| %>
+			<%= link_to task.task_name, course_task_path(@course, task.id) %>
+		<% end %>		
+	</div>
+
+</div>
