@@ -1,4 +1,4 @@
-<p>
+<p class="choices">
   <%= f.label :question, "Question" %>
   <%= f.text_area :question, :rows => 3 %>
 
@@ -14,8 +14,8 @@
   <%= f.label :d, "D." %>
   <%= f.text_field :d %>
 	
-	<%= f.check_box :_destroy %>
-  <%= f.label :_destroy, "Remove Question" %> 
+	<%= f.hidden_field :_destroy %>
+  
 
   <%= f.hidden_field :course_id, :value => params[:course_id] %>
   <%= f.hidden_field :teacher_id, :value => session[:user_id] %>

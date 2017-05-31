@@ -17,13 +17,17 @@
 							<%= link_to course.course_name, course_path(course) %>
 						</td>
 						<td class="task_name">
-							<%= link_to task.task_name, course_task_path(course, task) %>
+							<% if teacher? %>
+								<%= link_to task.task_name, course_task_path(course, task) %>
+							<% else %>
+								<%= link_to task.task_name, '#' %>
+							<% end %>
 						</td>
 						<td class="finish_time">
 							<%= task.finish_time %>
 						</td>
 						<td class="status">
-							<%= '之后添加' %>
+							<%= '未完成' %>
 						</td>
 					</tr>
 				<% end %>

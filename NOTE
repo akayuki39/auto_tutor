@@ -25,6 +25,7 @@ Choice
   t.text     "d"
   t.text     "knowledge"
 	
+在TaskChoice中添加题号字段，保存Task时添加进去
 
 Data
 	student id: 11, name: akayuki
