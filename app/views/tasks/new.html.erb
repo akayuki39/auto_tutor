@@ -15,12 +15,18 @@
 
         <%= f.hidden_field :course_id, :value => params[:course_id] %>
     </div>
-        <%= f.fields_for :choices do |v| %>
-          <%= render partial: "choice", locals: {f: v} %>
+      <!--   <%= f.fields_for :task_choices do |o| %>
+          <%= @i %>
+          <%= o.hidden_field :question_no, :value => @i %> -->
+          
+          <%= f.fields_for :choices do |v| %>
+            <%= render partial: "choice", locals: {f: v} %>
+            <!-- <% @i += 1 %> -->
+          <% end %>
         <% end %>
 
-      <%= f.submit "Create Task", class: "btn btn-primary" %>
-    <% end %>
+        <%= f.submit "Create Task", class: "btn btn-primary" %>
+      <% end %>
   </div>
   <div class="col-md-6 col-md-offset-9">
     <ul>

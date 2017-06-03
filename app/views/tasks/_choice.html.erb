@@ -2,15 +2,19 @@
   <%= f.label :question, "Question" %>
   <%= f.text_area :question, :rows => 3 %>
 
+  <%= f.radio_button(:answer, "A") %>
   <%= f.label :a, "A." %>
   <%= f.text_field :a %>
 
+  <%= f.radio_button(:answer, "B") %>
 	<%= f.label :b, "B." %>
   <%= f.text_field :b %>
 
+  <%= f.radio_button(:answer, "C") %>
   <%= f.label :c, "C." %>
   <%= f.text_field :c %>
 
+  <%= f.radio_button(:answer, "D") %>
   <%= f.label :d, "D." %>
   <%= f.text_field :d %>
 	

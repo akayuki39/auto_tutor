@@ -20,15 +20,21 @@
 							<% if teacher? %>
 								<%= link_to task.task_name, course_task_path(course, task) %>
 							<% else %>
-								<%= link_to task.task_name, '#' %>
+								<%= link_to task.task_name, new_task_homework_path(task) %>
 							<% end %>
 						</td>
 						<td class="finish_time">
 							<%= task.finish_time %>
 						</td>
-						<td class="status">
-							<%= '未完成' %>
-						</td>
+						<% if student? %>
+							<td class="status">
+								<% if Homework.find_by(task_id: task.id, student_id: current_user.id) %>
+									<%= "已完成" %>
+								<% else %>
+									<%= "未完成" %>
+								<% end %>
+							</td>
+						<% end %>
 					</tr>
 				<% end %>
 		<% end %>	

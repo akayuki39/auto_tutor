@@ -1,0 +1,17 @@
+<% provide(:title, @task.task_name) %>
+
+<p>
+	<%= @task.task_name %>
+</p>
+
+<%= form_for(@homework, url: task_homeworks_path) do |f| %>
+<!-- 嵌套表单 Homework - Answer -->
+	<%= f.hidden_field :student_id, :value => @user.id %>
+	<%= f.hidden_field :task_id, :value => params[:task_id] %>
+	<% i = 1 %>
+	<%= f.fields_for :answers do |v| %>
+		<%= render partial: "choice", locals: {:@task => @task, :f => v, :i => i} %>
+		<% i += 1 %>
+	<% end %>
+	<%= f.submit "Save Homework", class: "btn btn-primary" %>
+<% end %>

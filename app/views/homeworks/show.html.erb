@@ -7,7 +7,7 @@
 <ul>
 	<% for choice in @task.choices %>
 		<li>
-			<%= TaskChoice.find_by(task_id: @task.id, choice_id: choice.id).question_no %>
+			<%= question_no = TaskChoice.find_by(task_id: @task.id, choice_id: choice.id).question_no %>
 			. 
 			<%= choice.question %>
 			<ul>
@@ -15,7 +15,8 @@
 				<li>B. <%= choice.b %></li>
 				<li>C. <%= choice.c %></li>	
 				<li>D. <%= choice.d %></li>
-				<li>Answer: <%= choice.answer %></li>
+				<li>My Answer: <%= Answer.find_by(homework_id: @homework.id, question_no: question_no).content %></li>
+				<li>Right Answer: <%= choice.answer %></li>
 			</ul>
 		</li>
 	<% end %>
