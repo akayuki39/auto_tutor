@@ -14,6 +14,8 @@ class HomeworksController < ApplicationController
 		@homework = Homework.new(homework_params)
 		if @homework.save!
 			flash[:success] = "Homework saved."
+			answer_result(@homework)				# 填入answer.result
+			homework_accuracy(@homework)		# 填入homework.accuracy
 			redirect_to task_homework_path(@homework.task_id, @homework.id)
 		else
 			# render 'new'

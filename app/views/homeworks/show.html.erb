@@ -2,6 +2,8 @@
 
 <p>
 	<%= @task.task_name %>
+	accuracy: 
+	<%= @homework.accuracy %>
 </p>
 
 <ul>
@@ -15,8 +17,10 @@
 				<li>B. <%= choice.b %></li>
 				<li>C. <%= choice.c %></li>	
 				<li>D. <%= choice.d %></li>
-				<li>My Answer: <%= Answer.find_by(homework_id: @homework.id, question_no: question_no).content %></li>
-				<li>Right Answer: <%= choice.answer %></li>
+				<% my_answer = Answer.find_by(homework_id: @homework.id, question_no: question_no) %>
+				<li>My Answer: <%= my_answer.content %></li>
+				<li>Correct Answer: <%= choice.answer %></li>
+				<li>Result: <%= my_answer.result %></li>
 			</ul>
 		</li>
 	<% end %>

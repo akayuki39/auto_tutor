@@ -4,6 +4,10 @@
 	<%= @task.task_name %>
 </p>
 
+<p>
+	Average Accuracy: <%= task_accuracy(@task) %>
+</p>
+
 <ul>
 	<% for choice in @task.choices %>
 		<li>

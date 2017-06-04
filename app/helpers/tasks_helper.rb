@@ -10,4 +10,13 @@ module TasksHelper
 			i += 1
 		end
 	end
+
+	# 计算全体学生的正确率
+	def task_accuracy(task)
+		accuracy = 0.0
+		for homework in task.homeworks
+			accuracy += homework.accuracy
+		end
+		accuracy/(task.homeworks.count.to_f)
+	end
 end

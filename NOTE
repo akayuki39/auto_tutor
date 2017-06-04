@@ -28,10 +28,18 @@ Choice
 在TaskChoice中添加题号字段，保存Task时添加进去
 
 Data
-	student id: 11, name: akayuki
-	teacher id: 6,  name: 2
+	student id: 11, name: akayuki, pw: 123456
+	student id: 1,  name: 1,			 pw: 111111
+	teacher id: 6,  name: 2,       pw: 222222
 	course  id: 1,  course_number: 1000
 	task    
 
-choice.my_answer
+实现choice.my_answer功能？
 choie.answer
+正确率等数据加入homework中？
+homework: add accuracy
+answer: add result
+
+!!!!!!!
+一个很大的问题 find_by找到的不是全部而是满足条件的第一个？？
+=> 用.where就可以了

@@ -5,7 +5,9 @@
 			<th class="course_name">课程</th>
 			<th class="task_name">作业</th>
 			<th class="finish_time">截止时间</th>
-			<th class="status">状态</th>
+			<% if student? %>
+				<th class="status">状态</th>
+			<% end %>
 		</tr>
 	</thead>
 	<tbody>
