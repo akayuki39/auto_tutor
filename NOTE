@@ -34,12 +34,25 @@ Data
 	course  id: 1,  course_number: 1000
 	task    
 
+x 饼图：在全部错题中各题占的比例，显示该题对应的知识点
+每道题有多少人做错
+饼图或者其他：各个分数段学生所占的比例
+
+完善界面 参考：https://github.com/BranLiang/project_surveyor
+学生反馈：点击数据统计进入界面
+数据统计界面中显示错的多的几个知识点 点击知识点加强巩固 - 题库随机选题
+
 实现choice.my_answer功能？
 choie.answer
-正确率等数据加入homework中？
-homework: add accuracy
-answer: add result
+正确率等数据加入homework中？ => 搞定
+homework: add accuracy	  => 搞定
+answer: add result				=> 搞定
 
-!!!!!!!
+改进一下路由：取消task与homework的嵌套
+
+设置权限，查看Task以及Homework相关都需要登陆及本人
+
+
 一个很大的问题 find_by找到的不是全部而是满足条件的第一个？？
 => 用.where就可以了
+

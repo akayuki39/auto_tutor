@@ -1,13 +1,25 @@
-<div>
-	<%= @course.course_name %>
+<div class="col-md-6 col-md-offset-3">
+	<h1><%= @course.course_name %></h1>
 	<% if teacher? %>
-		<%= link_to 'New Task', new_course_task_path(@course) %>
+		<%= link_to 'Create a New Task', new_course_task_path(@course), class: "btn btn-primary btn-lg btn-block" %>
 	<% end %>
 	
-	<div>
+	<hr>
+
+	<ul>
 		<% @tasks.each do |task| %>
-			<%= link_to task.task_name, course_task_path(@course, task.id) %><br>
-		<% end %>		
-	</div>
+			<li>
+				<h3><%= task.task_name %></h3>
+				<h2><%= "Start at: #{task.start_time}" %></h2>
+				<% if teacher? %>
+					<%= link_to "Show Task", course_task_path(@course, task.id), class: "btn btn-info" %>
+					<%= link_to "View Result", "#", class: "btn btn-info" %>
+				<% elsif student? %>
+					<%= link_to "Do homework", new_task_homework_path(task), class: "btn btn-info" %>
+					<%= link_to "View Result", '#', class: "btn btn-info" %>
+				<% end %>
+			</li>
+		<% end %>	
+	</ul>
 
 </div>

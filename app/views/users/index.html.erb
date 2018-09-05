@@ -31,9 +31,9 @@
 						<% if student? %>
 							<td class="status">
 								<% if Homework.find_by(task_id: task.id, student_id: current_user.id) %>
-									<%= "已完成" %>
+									<font color="347653">已完成</font>
 								<% else %>
-									<%= "未完成" %>
+									<font color="AF4445">未完成</font>
 								<% end %>
 							</td>
 						<% end %>

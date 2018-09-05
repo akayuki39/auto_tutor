@@ -1,6 +1,10 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "AutoTutor", root_path, id: "logo" %>
+    <% if current_user %>
+      <%= link_to "AutoTutor", users_path, id: "logo" %>
+    <% else %>
+      <%= link_to "AutoTutor", root_path, id: "logo" %>
+    <% end %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home",   users_path %></li>

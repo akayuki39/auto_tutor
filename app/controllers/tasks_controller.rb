@@ -31,12 +31,24 @@ class TasksController < ApplicationController
 		end
 	end
 
+	def result
+		@task = Task.find(params[:id])
+	end
+
+	def data
+		respond_to do |format|  # 假数据
+			format.json {
+				render :json => [{"label":"1","value":13},{"label":"2","value":3},{"label":"3","value":15},{"label":"4","value":20},{"label":"5","value":5},{"label":"6","value":19},{"label":"7","value":16},{"label":"8","value":35}]
+			}
+		end
+	end
+
 	private
 
   	def task_params
   		params.require(:task).permit(:id, :task_name, :start_time, 
   				:finish_time, :course_id, task_choices_attributes:[:id, 
   				:task_id, :choice_id, :question_no], choices_attributes: 
-  				[:id, :question, :a, :b, :c, :d, :teacher_id, :course_id, :answer])
+  				[:id, :question, :a, :b, :c, :d, :teacher_id, :course_id, :answer, :knowledge])
   	end
 end

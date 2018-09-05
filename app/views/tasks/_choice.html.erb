@@ -20,6 +20,8 @@
 	
 	<%= f.hidden_field :_destroy %>
   
+  <%= f.label :knowledge, "knowledge" %>
+  <%= f.text_field :knowledge %>  
 
   <%= f.hidden_field :course_id, :value => params[:course_id] %>
   <%= f.hidden_field :teacher_id, :value => session[:user_id] %>

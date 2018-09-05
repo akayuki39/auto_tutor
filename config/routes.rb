@@ -13,6 +13,16 @@ Rails.application.routes.draw do
   end
   
   resources :tasks do
-    resources :homeworks
+    member do
+      get 'result'
+      get 'data',  :defaults => { :format => 'json' }
+    end
+    resources :homeworks do
+      member do
+        get 'result'
+        get 'data',  :defaults => { :format => 'json' }
+      end
+    end
   end
+
 end

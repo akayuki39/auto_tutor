@@ -1,27 +1,32 @@
 <% provide(:title, @task.task_name) %>
 
-<p>
-	<%= @task.task_name %>
-	accuracy: 
-	<%= @homework.accuracy %>
-</p>
+<div class="col-md-6 col-md-offset-3">
+	<header class="text-center">
+		<h3><%= @task.task_name %></h3>
+		<h2>accuracy: <%= @homework.accuracy %></h2>
+		<hr>
+	</header>
+	<ul>
+		<% for choice in @task.choices %>
+			<li>
+				<h4><%= question_no = TaskChoice.find_by(task_id: @task.id, choice_id: choice.id).question_no %>
+				. 
+				<%= choice.question %></h4>
+				<ul>
+					<li id="choice_a">A. <%= choice.a %></li>
+					<li id="choice_b">B. <%= choice.b %></li>
+					<li id="choice_c">C. <%= choice.c %></li>	
+					<li id="choice_d">D. <%= choice.d %></li>
+					<% my_answer = Answer.find_by(homework_id: @homework.id, question_no: question_no) %>
+					<li>My Answer: <%= my_answer.content %></li>
+					<li>Correct Answer: <%= choice.answer %></li>
+					<li>Knowledge: <%= choice.knowledge %></li>
+					<li>Result: <%= my_answer.result %></li>
+				</ul>
+			</li>
+			<hr>
+		<% end %>
+	</ul>
 
-<ul>
-	<% for choice in @task.choices %>
-		<li>
-			<%= question_no = TaskChoice.find_by(task_id: @task.id, choice_id: choice.id).question_no %>
-			. 
-			<%= choice.question %>
-			<ul>
-				<li>A. <%= choice.a %></li>
-				<li>B. <%= choice.b %></li>
-				<li>C. <%= choice.c %></li>	
-				<li>D. <%= choice.d %></li>
-				<% my_answer = Answer.find_by(homework_id: @homework.id, question_no: question_no) %>
-				<li>My Answer: <%= my_answer.content %></li>
-				<li>Correct Answer: <%= choice.answer %></li>
-				<li>Result: <%= my_answer.result %></li>
-			</ul>
-		</li>
-	<% end %>
-</ul>
+	<%= link_to "result", result_task_homework_path, class: "btn btn-info " %>
+</div>
