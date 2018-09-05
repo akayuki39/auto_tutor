@@ -6,12 +6,12 @@
     <%= form_for(@user, url: signup_path) do |f| %>
       <%= render 'shared/error_messages' %>
 
-		  <%= f.radio_button :type, "Student" %>
-			<%= f.label :type_student, "I am a student" %>
+      <%= f.radio_button :type, "Student" %>
+      <%= f.label :type_student, "I am a student" %>
 
-			<%= f.radio_button :type, "Teacher" %>
-			<%= f.label :type_teacher, "I am a teacher" %>
-			</br>	
+      <%= f.radio_button :type, "Teacher" %>
+      <%= f.label :type_teacher, "I am a teacher" %>
+      </br>  
       <%= f.label :name %>
       <%= f.text_field :name %>
 

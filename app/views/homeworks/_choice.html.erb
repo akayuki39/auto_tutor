@@ -1,30 +1,30 @@
 <ul>
-	<% choice = Choice.find(TaskChoice.find_by(task_id: @task.id, question_no: i).choice_id) %>
-	<%= f.hidden_field :question_no, :value => i %>
-	<li>
-		<%= i %>.
-		<%= choice.question %>
-		<ul>
-			<li>
-				<%= f.radio_button(:content, "A") %>
-				A. 
-				<%= f.label(:content_A, choice.a) %>
-			</li>
-			<li>
-				<%= f.radio_button(:content, "B") %>
-				B. 
-				<%= f.label(:content_B, choice.b) %>
-			</li>
-			<li>
-				<%= f.radio_button(:content, "C") %>
-				C. 
-				<%= f.label(:content_C, choice.c) %>
-			</li>
-			<li>
-				<%= f.radio_button(:content, "D") %>
-				D. 
-				<%= f.label(:content_D, choice.d) %>
-			</li>
-		</ul>
-	</li>
+  <% choice = Choice.find(TaskChoice.find_by(task_id: @task.id, question_no: i).choice_id) %>
+  <%= f.hidden_field :question_no, :value => i %>
+  <li>
+    <%= i %>.
+    <%= choice.question %>
+    <ul>
+      <li>
+        <%= f.radio_button(:content, "A") %>
+        A. 
+        <%= f.label(:content_A, choice.a) %>
+      </li>
+      <li>
+        <%= f.radio_button(:content, "B") %>
+        B. 
+        <%= f.label(:content_B, choice.b) %>
+      </li>
+      <li>
+        <%= f.radio_button(:content, "C") %>
+        C. 
+        <%= f.label(:content_C, choice.c) %>
+      </li>
+      <li>
+        <%= f.radio_button(:content, "D") %>
+        D. 
+        <%= f.label(:content_D, choice.d) %>
+      </li>
+    </ul>
+  </li>
 </ul>

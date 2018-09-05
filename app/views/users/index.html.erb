@@ -1,45 +1,45 @@
 <div>
 <table class="table">
-	<thead class="thead-default">
-		<tr class="task">
-			<th class="course_name">课程</th>
-			<th class="task_name">作业</th>
-			<th class="finish_time">截止时间</th>
-			<% if student? %>
-				<th class="status">状态</th>
-			<% end %>
-		</tr>
-	</thead>
-	<tbody>
-		<% @courses.each do |course| %>
-			<% @tasks = course.tasks %>
-				<% @tasks.each do |task| %>
-					<tr class="task">
-						<td class="course_name">
-							<%= link_to course.course_name, course_path(course) %>
-						</td>
-						<td class="task_name">
-							<% if teacher? %>
-								<%= link_to task.task_name, course_task_path(course, task) %>
-							<% else %>
-								<%= link_to task.task_name, new_task_homework_path(task) %>
-							<% end %>
-						</td>
-						<td class="finish_time">
-							<%= task.finish_time %>
-						</td>
-						<% if student? %>
-							<td class="status">
-								<% if Homework.find_by(task_id: task.id, student_id: current_user.id) %>
-									<font color="347653">已完成</font>
-								<% else %>
-									<font color="AF4445">未完成</font>
-								<% end %>
-							</td>
-						<% end %>
-					</tr>
-				<% end %>
-		<% end %>	
-	</tbody>
+  <thead class="thead-default">
+    <tr class="task">
+      <th class="course_name">课程</th>
+      <th class="task_name">作业</th>
+      <th class="finish_time">截止时间</th>
+      <% if student? %>
+        <th class="status">状态</th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @courses.each do |course| %>
+      <% @tasks = course.tasks %>
+        <% @tasks.each do |task| %>
+          <tr class="task">
+            <td class="course_name">
+              <%= link_to course.course_name, course_path(course) %>
+            </td>
+            <td class="task_name">
+              <% if teacher? %>
+                <%= link_to task.task_name, course_task_path(course, task) %>
+              <% else %>
+                <%= link_to task.task_name, new_task_homework_path(task) %>
+              <% end %>
+            </td>
+            <td class="finish_time">
+              <%= task.finish_time %>
+            </td>
+            <% if student? %>
+              <td class="status">
+                <% if Homework.find_by(task_id: task.id, student_id: current_user.id) %>
+                  <font color="347653">已完成</font>
+                <% else %>
+                  <font color="AF4445">未完成</font>
+                <% end %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+    <% end %>  
+  </tbody>
 </table>
 </div>

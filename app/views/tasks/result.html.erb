@@ -1,25 +1,25 @@
 <div class="text-center">
-	<h3><%= @task.task_name %></h3>
+  <h3><%= @task.task_name %></h3>
 </div>
 
 <hr>
-	
+  
 <div id="chart">
-	<h2 class="text-center">学生题目错误数量</h2>
-	<svg></svg>
+  <h2 class="text-center">学生题目错误数量</h2>
+  <svg></svg>
 </div>
 
 <script>
-	$.ajax({
-				 type: "GET",
-				 contentType: "application/json; charset=utf-8",
-				 url: 'data',
-				 dataType: 'json',
-				 success: function(data) {
-						 nv.addGraph(draw_pie(data));
-				 },
-				 error: function (result) {
-						 error();
-				 }
-				});
+  $.ajax({
+         type: "GET",
+         contentType: "application/json; charset=utf-8",
+         url: 'data',
+         dataType: 'json',
+         success: function(data) {
+             nv.addGraph(draw_pie(data));
+         },
+         error: function (result) {
+             error();
+         }
+        });
 </script>
